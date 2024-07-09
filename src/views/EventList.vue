@@ -6,7 +6,8 @@
 </template>
 
 <script>
-import EventCard from "@/components/EventCard.vue";
+import EventCard from "@/components/EventCard.vue"
+import axios from 'axios'
 
 export default {
   name: "EventList",
@@ -15,24 +16,21 @@ export default {
   },
   data() {
     return {
-      events: [
-        {
-          id: 45454,
-          category: "animal welfare",
-          title: "Cat Adoption Day",
-          date: "January 28, 2022",
-          time: "12:00",
-        },
-        {
-          id: 23233,
-          category: "animal welfare 2",
-          title: "Cat Adoption Day 2",
-          date: "January 30, 2022",
-          time: "12:00",
-        },
-      ],
+     events: null
     };
   },
+  created() {
+    axios
+    .get(
+      'http://localhost:3000/events'
+    )
+    .then(response => {
+      this.events = response.data
+    })
+    .catch(error => {
+      console.log(error)
+    } )
+  }
 };
 </script>
 <style scoped>

@@ -1,0 +1,24 @@
+{
+    "jobs": [
+        { "title": "Ninja Dev Ops", "id": 1, "details": "hide me" },
+        { "title": "Ninja Web Dev", "id": 2, "details": "hide not me" },
+        { "title": "Ninja Vue Ops", "id": 3, "details": "forget it" }
+      ],
+      "blogs": [],
+      "events": [
+        {
+          "id": 45454,
+          "category": "animal welfare",
+          "title": "Cat Adoption Day",
+          "date": "January 28, 2022",
+          "time": "12:00"
+        },
+        {
+          "id": 23233,
+          "category": "animal welfare 2",
+          "title": "Cat Adoption Day 2",
+          "date": "January 30, 2022",
+          "time": "12:00"
+        }
+      ]
+}
