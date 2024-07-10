@@ -5,6 +5,8 @@ import EventDetails from "../views/event/EventDetails.vue";
 import EventLayout from "../views/event/Layout.vue";
 import EventRegister from "../views/event/EventRegister.vue";
 import EventEdit from "../views/event/EventEdit.vue";
+import NotFound from "../views/NotFound.vue";
+import NetworkError from "../views/NetworkError.vue";
 
 const routes = [
   {
@@ -19,24 +21,40 @@ const routes = [
     component: AboutView,
     alias: "/about",
   },
+  {
+    path: "/404/:resource",
+    name: "404Resource",
+    component: NotFound,
+    props: true,
+  },
+  {
+    path: "/network-error",
+    name: "NetworkError",
+    component: NetworkError,
+  },
   /* {
     path: "/about",
     redirect: { name: "about" },
   }, */
- /*  {
+  /*  {
     path: "/event/:id",
     redirect: () => {
       return { name: "EventDetails" };
     }, */
-    {
-      path: "/event/:afterEvent(.*)",
-      redirect: to => {
-        return { path: "/events/" + to.params.afterEvent };
-      },
+  {
+    path: "/event/:afterEvent(.*)",
+    redirect: (to) => {
+      return { path: "/events/" + to.params.afterEvent };
+    },
     /* children: [
       { path: 'register', redirect: () => ({ name: 'EventRegister'})},
       { path: 'edit', redirect: () => ({ name: 'EventEdit'})},
     ] */
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: NotFound,
   },
   {
     path: "/events/:id",
